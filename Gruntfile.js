@@ -15,6 +15,9 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  var serveStatic = require('serve-static');
+
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -72,32 +75,48 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       livereload: {
+
         options: {
-          open: true,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
+              serveStatic('.tmp'),
+              connect().use('/bower_components', serveStatic('./bower_components')),
+              serveStatic(appConfig.app)
             ];
           }
         }
+
+        // options: {
+        //   open: true,
+        //   middleware: function (connect) {
+        //     return [
+        //       connect.static('.tmp'),
+        //       connect().use(
+        //         '/bower_components',
+        //         connect.static('./bower_components')
+        //       ),
+        //       connect.static(appConfig.app)
+        //     ];
+        //   }
+        // }
       },
       test: {
         options: {
           port: 9001,
           middleware: function (connect) {
+            // return [
+            //   connect.static('.tmp'),
+            //   connect.static('test'),
+            //   connect().use(
+            //     '/bower_components',
+            //     connect.static('./bower_components')
+            //   ),
+            //   connect.static(appConfig.app)
+            // ];
             return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
+              serveStatic('.tmp'),
+              connect().use('/bower_components', serveStatic('./bower_components')),
+              serveStatic(appConfig.app)
             ];
           }
         }
