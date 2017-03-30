@@ -31,16 +31,15 @@ angular.module('agrestaApp')
       $scope.msg = 'Pulsa Ctrl + C para copiar';
     };
 
-    // console.log($rootScope.baseurl);
-    $scope.msg = '';
+    $scope.selectFirma = function() {
+      console.log('select firma main');
+      console.log($('#htmlcont').css('display'));
 
-
-        $scope.selectFirma = function() {
-        if ($('#htmlcont').css('display')==='none') {
-            $scope.selectText('firma');
-        } else {
-            $scope.selectText('html');
-        }
+      if ($('#htmlcont').css('display')==='none') {
+          $scope.selectText('firma');
+      } else {
+          $scope.selectText('html');
+      }
     };
 
     $scope.selectText = function(element) {
@@ -58,25 +57,6 @@ angular.module('agrestaApp')
         selection.removeAllRanges();
         selection.addRange(range);
       }
-      $scope.msg = 'Pulsa Ctrl + C para copiar';
-    };
-
-
-    $scope.showHtml = function(element) {
-      console.log(element);
-      if ($('#showHtml').html()==='Ver html') {
-        $('#showHtml').html('Ver firma');
-      } else {
-         $('#showHtml').html('Ver html');
-      }
-      $('#firma').toggle();
-      $('#htmlcont').toggle();
-      var firma = $('#firma').html();
-      firma = $('<div />').text(firma).html();
-      firma += ' <p>&nbsp;</p> ';
-
-      $('#html').html(firma);
-
       $scope.msg = 'Pulsa Ctrl + C para copiar';
     };
 

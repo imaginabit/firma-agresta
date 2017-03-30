@@ -46,5 +46,41 @@ angular
    });
  }]).run(function($rootScope) {
    //TODO: change to final url
-   $rootScope.baseurl = 'http://localhost:9000/';
+   $rootScope.baseurl = 'http://dev.agresta.org/firma/';
+
+  //  $rootScope.hideCont = function() {
+  //   $('#htmlcont').hide();
+  //  };
+
+   $rootScope.showHtml = function(element) {
+     console.log(element);
+     console.log($('#showHtml').html());
+
+     if ($('#showHtml').html()==='Ver html') {
+       $('#showHtml').html('Ver firma');
+
+      $('#firma').hide();
+      $('#htmlcont').show();
+      $('#htmlcont').show();
+      console.log('htmlcont show');
+
+     } else {
+        $('#showHtml').html('Ver html');
+
+        $('#firma').show();
+        $('#htmlcont').hide();
+     }
+
+
+
+     var firma = $('#firma').html();
+     firma = $('<div />').text(firma).html();
+     firma += ' <p>&nbsp;</p> ';
+
+
+
+     $('#html').html(firma);
+     $rootScope.msg = 'Pulsa Ctrl + C para copiar';
+   };
+
 });
