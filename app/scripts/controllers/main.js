@@ -2,18 +2,15 @@
 
 /**
  * @ngdoc function
- * @name tangenteApp.controller:MainCtrl
+ * @name agrestaApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the tangenteApp
+ * Controller of the agrestaApp
  */
-angular.module('tangenteApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+angular.module('agrestaApp')
+  .controller('MainCtrl', function ($scope, $rootScope) {
+
+    $rootScope.main = 'loaded';
 
     $scope.selectText = function(element) {
       var doc = document;
@@ -34,7 +31,7 @@ angular.module('tangenteApp')
       $scope.msg = 'Pulsa Ctrl + C para copiar';
     };
 
-    $scope.baseurl = 'http://imaginabit.com/';
+    // console.log($rootScope.baseurl);
     $scope.msg = '';
 
 

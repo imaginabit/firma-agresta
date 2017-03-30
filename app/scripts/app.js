@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name tangenteApp
+ * @name agrestaApp
  * @description
- * # tangenteApp
+ * # agrestaApp
  *
  * Main module of the application.
  */
 angular
-  .module('tangenteApp', [
+  .module('agrestaApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -23,13 +23,13 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/firmaSubmarca', {
-        templateUrl: 'views/firmasubmarca.html',
-        controller: 'FirmasubmarcaCtrl'
+      .when('/forestMap', {
+        templateUrl: 'views/forestmap.html',
+        controller: 'ForestMapCtrl'
       })
-      .when('/firmaEquipo', {
-        templateUrl: 'views/firmaequipo.html',
-        controller: 'FirmaequipoCtrl'
+      .when('/dwo', {
+        templateUrl: 'views/dwo.html',
+        controller: 'dwoCtrl'
       })
       .when('/instruciones', {
         templateUrl: 'views/instruciones.html',
@@ -44,6 +44,7 @@ angular
      console.log(oldVal);
      $rootScope.activetab = newVal;
    });
-}])
-
-  ;
+ }]).run(function($rootScope) {
+   //TODO: change to final url
+   $rootScope.baseurl = 'http://localhost:9000/';
+});

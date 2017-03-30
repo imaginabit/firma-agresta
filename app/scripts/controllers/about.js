@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name tangenteApp.controller:AboutCtrl
+ * @name agrestaApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the tangenteApp
+ * Controller of the agrestaApp
  */
-angular.module('tangenteApp')
+angular.module('agrestaApp')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
