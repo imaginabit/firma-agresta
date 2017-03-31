@@ -50,7 +50,7 @@
 
   <table border="0">
 
-    <tr style="color:#000; font-size: 17px; font-family: tahoma, hevietica, sans;background: #fff;" height="110PX" width="1111px">
+    <tr style="color:#6f6f6e; font-size: 17px; font-family: Verdana, Helvetica, sans-serif;background: #fff;" height="110PX" width="1111px">
 
       <td width=290 style="
     padding-left:45px;
@@ -58,19 +58,21 @@
         <a href="http://www.agresta.org" title="agresta" target="_blank" style="text-decoration: none;"><img src="{{baseurl}}images/logoAgresta.png" title="Agresta" alt="Agresta"></a>
       </td>
       <td style="padding-top:45px;"><br />
-        <div style="padding-left:40px;border-left: 3px solid #c6c6c6">
+        <div style="color:#6f6f6e; padding-left:40px;border-left: 3px solid #c6c6c6">
           <span>
           {{ nombre || 'Nombre Apellido' }}
         </span><br>
           <div style="font-size: 15px;margin-top: 2px;">
             {{ cargo || ' Cargo que ocupa' }}
           </div>
-          <div style="color:#6f6f6e; font-size: 15px;line-height:25px">
-            {{ email || 'nombre@agresta.org' }}<br> {{ telefono || '+ 34 000 000 000 | +34 910 000 000' }}
+          <div style="font-size: 15px;line-height:25px">
+            {{ email || 'nombre@agresta.org' }}<br>
+            {{ telefono || '+ 34 000 000 000 | +34 910 000 000' }}<br>
+            <span style="font-size: 13px" ng-bind-html="custml"></span>
           </div>
 
-          <div style="color:#000; font-size: 13px;margin-top: 10px;">Agresta S. Coop.</div>
-          <a style="color: #6f6f6e;font-size: 12px;margin-top: 2px;display: block;text-decoration:none" href="http://www.agresta.org" title="Agresta S. Coop" target="_blank" style="text-decoration: none;">www.agresta.org</a>
+          <div style="font-size: 13px;margin-top: 10px;">Agresta S. Coop.</div>
+          <a style="color:#6f6f6e;font-size: 12px;margin-top: 2px;display: block;text-decoration:none" href="http://www.agresta.org" title="Agresta S. Coop" target="_blank" style="text-decoration: none;">www.agresta.org</a>
         </div>
         <div style="height: 40px;width:100%"></div>
       </td>
