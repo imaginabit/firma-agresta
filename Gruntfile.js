@@ -24,6 +24,7 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -371,6 +372,19 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    'ftp-deploy': {
+      build: {
+        auth: {
+          host: 'dev.agresta.org',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: './dist',
+        dest: '//htdocs/firma',
+        exclusions: ['path/to/source/folder/**/.DS_Store', 'path/to/source/folder/**/Thumbs.db', 'path/to/dist/tmp']
+      }
     }
   });
 
@@ -425,4 +439,10 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  //load ftp
+  //grunt.task.loadNpmTasks(pluginName)
+  grunt.loadNpmTasks('grunt-ftp-deploy');
+
+
 };
