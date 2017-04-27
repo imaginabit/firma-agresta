@@ -47,6 +47,7 @@ angular
  }]).run(function($rootScope) {
    //TODO: change to final url
    $rootScope.baseurl = 'http://dev.agresta.org/firma/';
+   $rootScope.pie = 'views/pie.html';   
 
   //  $rootScope.hideCont = function() {
   //   $('#htmlcont').hide();
