@@ -78,6 +78,7 @@ module.exports = function (grunt) {
       livereload: {
 
         options: {
+          open: true,
           middleware: function(connect) {
             return [
               serveStatic('.tmp'),
@@ -86,20 +87,6 @@ module.exports = function (grunt) {
             ];
           }
         }
-
-        // options: {
-        //   open: true,
-        //   middleware: function (connect) {
-        //     return [
-        //       connect.static('.tmp'),
-        //       connect().use(
-        //         '/bower_components',
-        //         connect.static('./bower_components')
-        //       ),
-        //       connect.static(appConfig.app)
-        //     ];
-        //   }
-        // }
       },
       test: {
         options: {
@@ -328,7 +315,8 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
+            'images/**/*.png',
+            // 'images/{,*/}*.{webp}',
             'fonts/{,*/}*.*'
           ]
         }, {

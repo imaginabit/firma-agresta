@@ -44,10 +44,10 @@ angular
      console.log(oldVal);
      $rootScope.activetab = newVal;
    });
- }]).run(function($rootScope) {
+ }]).run(function($rootScope, $parse) {
    //TODO: change to final url
    $rootScope.baseurl = 'http://dev.agresta.org/firma/';
-   $rootScope.pie = 'views/pie.html';   
+   $rootScope.pie = 'views/pie.html';
 
   //  $rootScope.hideCont = function() {
   //   $('#htmlcont').hide();
@@ -72,16 +72,38 @@ angular
         $('#htmlcont').hide();
      }
 
-
-
      var firma = $('#firma').html();
      firma = $('<div />').text(firma).html();
      firma += ' <p>&nbsp;</p> ';
-
-
 
      $('#html').html(firma);
      $rootScope.msg = 'Pulsa Ctrl + C para copiar';
    };
 
+   $rootScope.init = function() {
+      console.log('init called');
+      $('img.base64').each(function() {
+        console.log('convertir a base64');
+        //var imgurl = $(this).attr('data-img') ;
+        var imgurl = this.attributes['data-img'].value;// .attr('data-img') ;
+        console.log('img url',imgurl);
+        // console.log('img url value',imgurl.value);
+        // console.log('img url value parse ', $parse ( imgurl.value )($rootScope));
+        imgurl = $parse ( imgurl )($rootScope);
+        var este = $(this);
+
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+          var reader = new FileReader();
+          reader.onloadend = function() {
+            console.log('load end');
+            este.attr('src', reader.result);
+          };
+          reader.readAsDataURL(xhr.response);
+        };
+        xhr.open('GET', imgurl );
+        xhr.responseType = 'blob';
+        xhr.send();
+      });
+    };
 });

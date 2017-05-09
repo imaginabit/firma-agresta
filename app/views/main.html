@@ -1,3 +1,4 @@
+<span ng-init="init()"></span>
 <form class="form-horizontal">
   <div class="form-group">
     <label class="col-sm-4 control-label" for='nombre'>Nombre y apellidos</label>
@@ -55,7 +56,8 @@
       <td width=290 style="
     padding-left:45px;
     ">
-        <a href="http://www.agresta.org" title="agresta" target="_blank" style="text-decoration: none;"><img src="{{baseurl}}images/logoAgresta.png" title="Agresta" alt="Agresta"></a>
+        <a href="http://www.agresta.org" title="agresta" target="_blank" style="text-decoration: none;">
+          <img class="base64" data-img="baseurl + 'images/logoAgresta.png'" src="{{baseurl + 'images/logoAgresta.png'}}" title="Agresta" alt="Agresta"></a>
       </td>
       <td style="padding-top:45px;"><br />
         <div style="color:#6f6f6e; padding-left:40px;border-left: 3px solid #c6c6c6">
